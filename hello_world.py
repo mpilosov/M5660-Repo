@@ -11,7 +11,7 @@ print '\t my name is Jing Hu'
 print "\t my name is Yuanlong Wang and I'm a pusher."
 print '\t my name is Mitchell Matheny and Im a pusher'  
 print '\t my name is Elise Reed'
-print '\t my name is Chau Nguyen'
+print '\t my name is Chau Nguyen and finally a pusher.'
 print "\t My name is Doug Cheney and I'm a pusher."
 print '\t my name is Alexa Desautels'
 print '\t my name is Natalia Villegas-Franco I'm a pusher and I'm standing still.'
