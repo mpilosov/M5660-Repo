@@ -6,6 +6,7 @@ print(str+" my name is Varis Carey")
 print '\t my name is Daniel Bielich and I am a pusher and I am standing still.'
 print '\t my name is Michael Pilosov (first!)'
 print '\t my name is Jordan Hall'
+<<<<<<< HEAD
 print '\t My name is Megan Sorenson and Iam a pusher!'
 print '\t my name is Jing Hu'
 print '\t my name is Mitchell Matheny and Im a pusher and im standing still '
@@ -15,5 +16,17 @@ print '\t my name is Chau Nguyen and I am a pusher'
 print "\t My name is Doug Cheney and I m a pusher."
 print '\t my name is Alexa Desautels'
 print '\t my name is Natalia Villegas-Franco I m a pusher and I m standing still.'
+=======
+print '\t My name is Megan Sorenson and I'm a pusher'
+print '\t my name is Jing Hu and I'm a pusher'
+print "\t my name is Yuanlong Wang and I'm a pusher."
+print '\t my name is Mitchell Matheny and Im a pusher'  
+print '\t my name is Elise Reed'
+print '\t my name is Chau Nguyen'
+print "\t My name is Doug Cheney and I'm a pusher."
+print '\t my name is Alexa Desautels'
+print '\t my name is Natalia Villegas-Franco I'm a pusher and I'm standing still.'
+print(str+" my name is Evan Shapiro and I am pusher.")
+>>>>>>> 7cde4c4b835e3abbf92cc8efe3f513697e041cc3
 print '\t My name is Shanon Yeung.'
-print(str+" my name is Evan Shapiro")
+
