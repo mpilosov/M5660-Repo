@@ -15,6 +15,6 @@ print '\t my name is Chau Nguyen'
 print "\t My name is Doug Cheney and I'm a pusher."
 print '\t my name is Alexa Desautels'
 print '\t my name is Natalia Villegas-Franco I'm a pusher and I'm standing still.'
-print(str+" my name is Evan Shapiro and I am pusher.")
+print(str+" my name is Evan Shapiro and I am pusher1.")
 print '\t My name is Shanon Yeung.'
 
