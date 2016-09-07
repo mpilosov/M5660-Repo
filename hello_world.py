@@ -16,7 +16,7 @@ print '\t my name is Alexa Desautels'
 print '\t my name is Natalia Villegas-Franco I m a pusher and I m standing still.'
 print '\t my name is Jing Hu and I'm a pusher'
 print(str+" my name is Evan Shapiro and I am pusher.")
-print "\t my name is Yuanlong Wang and I'm a pusher and I'm standing."
+print "\t my name is Yuanlong Wang and I'm a pusher and I'm standing still."
 print '\t My name is Shanon Yeung.'
 
 
