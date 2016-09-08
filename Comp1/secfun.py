@@ -7,7 +7,6 @@ class secret_func:
     def eval(self,x):
         import numpy as np
         import math
-        print self.root
         if not np.isscalar(x):
             print 'Not a scalar input'
             ans=float('Nan')
@@ -32,7 +31,7 @@ class secret_func:
             print 'Too many accesses of function!'
             ans=float('NaN')
         else:
-            ans=50/(1+2500*(x-self.root)**2)-math.pi*.1*np.sin(math.pi*x)
+            ans=50/(1+2500*(x-self.root)**2)+math.pi*.1*np.cos(math.pi*x)
         return ans
 
 
