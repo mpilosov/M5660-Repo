@@ -3,10 +3,11 @@ class secret_func:
         import math,random
         self.root=200*random.random()-100.0
         self.calls=0
-
+    
     def eval(self,x):
         import numpy as np
         import math
+        print self.root
         if not np.isscalar(x):
             print 'Not a scalar input'
             ans=float('Nan')
