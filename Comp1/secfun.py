@@ -31,7 +31,7 @@ class secret_func:
             print 'Too many accesses of function!'
             ans=float('NaN')
         else:
-            ans=50/(1+2500*(x-self.root)**2)-math.pi*.1*np.cos(math.pi*x)
+            ans=50/(1+2500*(x-self.root)**2)+math.pi*.1*np.cos(math.pi*x)
         return ans
 
 
