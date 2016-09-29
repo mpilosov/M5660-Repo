@@ -8,10 +8,10 @@ import numpy as np
 import pylab as plt
 
 
-initial_guess = 20.             # choose an initial guess 
+initial_guess = -20.             # choose an initial guess 
 tol = 1E-16                     # set tolerance for root
 err = 1                         # initialize error 
-modify = False                   # Modified Newton's Method?
+modify = True                   # Modified Newton's Method?
 
 choose_root = np.random.rand()  # choose a random root
 multiplicity = 2                # choose multiplicity of root at x = 0
