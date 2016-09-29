@@ -8,7 +8,7 @@ import numpy as np
 import pylab as plt
 
 
-initial_guess = 1.             # choose an initial guess 
+initial_guess = 20.             # choose an initial guess 
 tol = 1E-16                     # set tolerance for root
 err = 1                         # initialize error 
 modify = False                   # Modified Newton's Method?
