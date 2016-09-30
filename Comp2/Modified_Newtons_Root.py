@@ -8,16 +8,17 @@ import numpy as np
 import pylab as plt
 
 
-initial_guess = -20.             # choose an initial guess 
-tol = 1E-16                     # set tolerance for root
+initial_guess = -20.0            # choose an initial guess 
+tol = 1E-64                     # set tolerance for root
 err = 1                         # initialize error 
-modify = True                   # Modified Newton's Method?
+#modify = True                   # Modified Newton's Method?
+modify = True
 
-choose_root = np.random.rand()  # choose a random root
-multiplicity = 2                # choose multiplicity of root at x = 0
+#choose_root = np.random.rand()  # choose a random root
+#multiplicity = 2                # choose multiplicity of root at x = 0
 
 class fun:
-    def __init__(self):
+    def __init__(self,choose_root=np.random.rand(),multiplicity=2):
         self.root = choose_root
         self.calls = 0
         self.mult = multiplicity
@@ -36,7 +37,7 @@ class fun:
     def iterate_Modified_Newton(self,x):
         return x - self.mult*fun.eval_f(x)/fun.eval_df(x)
         
-fun = fun()
+fun = fun(choose_root=10.0,multiplicity=6)
 x = initial_guess
 x_vec = []
 while (err>tol): 
@@ -60,12 +61,18 @@ print('The true (nonzero) root was %2.15e, \n \t \t which is within %2.15e of ou
 fsize = 14
 x_vec = np.array(x_vec)
 fig, ax = plt.subplots() 		# multiple plots all on figure 'ax'
-ax.plot( range(len(x_vec)), np.abs(x_vec - choose_root) )
+temp=np.abs(x_vec-choose_root)
+ratio=temp[1:]/temp[0:-1]
+ratio2=temp[1:]/temp[0:-1]**2
+ax.plot( range(len(ratio)), ratio )
+ax.plot( range(len(ratio)), ratio2 )
+#ax.plot( range(len(x_vec)), np.abs(x_vec - choose_root) )
 plt.ylabel('Absolute Error', fontsize=fsize)
 plt.xlabel('Iterations', fontsize=fsize)
 # plt.yscale('log')
 # plt.xscale('log')
 plt.show()	
+
 
 
 
