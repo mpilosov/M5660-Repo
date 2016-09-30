@@ -26,17 +26,17 @@ class fun:
         
     def eval_f(self, x): # function evaluation x^m * (x - r)
         self.calls += 1
-        return np.float64( (x**self.mult)*(x-self.root) )
+        return np.float128( (x**self.mult)*(x-self.root) )
         
     def eval_df(self, x): # function derivative
         self.calls += 1
-        return np.float64( self.mult*( x**(self.mult - 1) )*(x-self.root) + x**self.mult )
+        return np.float128( self.mult*( x**(self.mult - 1) )*(x-self.root) + x**self.mult )
 
     def iterate_Newton(self,x):
-        return np.float64( x - fun.eval_f(x)/fun.eval_df(x) )
+        return np.float128( x - fun.eval_f(x)/fun.eval_df(x) )
         
     def iterate_Modified_Newton(self,x):
-        return np.float64( x - self.m*fun.eval_f(x)/fun.eval_df(x) )
+        return np.float128( x - self.m*fun.eval_f(x)/fun.eval_df(x) )
         
     def iterate_hybrid_Newton(self,x):
         x = self.iterate_Modified_Newton(x)
