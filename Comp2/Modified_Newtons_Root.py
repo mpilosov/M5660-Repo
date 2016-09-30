@@ -8,12 +8,12 @@ import numpy as np
 import pylab as plt
 
 
-initial_guess = 40.0            # choose an initial guess 
+initial_guess = -400.0            # choose an initial guess 
 tol = 1E-64                      # set tolerance for root
 err = 1                          # initialize error 
 
 
-mode = 'orig'                    # Choose mode. orig / mod / hybrid
+mode = 'mod'                    # Choose mode. orig / mod / hybrid
 
 choose_root = 10                 # choose a random root
 multiplicity = 2                # choose multiplicity of root at x = 0
@@ -119,16 +119,16 @@ ratio=temp[1:]/temp[0:-1]
 ratio2=temp[1:]/temp[0:-1]**2
 
 
-# print x_ratio
-# print ratio
+print x_ratio
+print ratio
 # print ' '
 # print x_ratio2
-# print ratio2
+print ratio2
 
 
 ax.plot( range(len(x_ratio)), x_ratio )
-if mode != 'mod':
-    ax.plot( range(len(ratio)-1), x_ratio2 ) # don't look at quadratic for regular newton's on repeated root.
+# if mode != 'mod':
+ax.plot( range(len(ratio)-1), x_ratio2 ) # don't look at quadratic for regular newton's on repeated root.
 
 #ax.plot( range(len(x_vec)), np.abs(x_vec - choose_root) )
 plt.ylabel('Convergence Rate', fontsize=fsize)
