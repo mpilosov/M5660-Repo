@@ -19,6 +19,10 @@ def cond_pfun(x,a):
                 np.multiply(np.abs(x), 
                             np.abs( pfun(x, [n*a[n] for n in range(1, len(a))] ) ) ), 
                 np.abs(pfun(x,a)))
+    # return np.divide(
+    #             np.multiply(np.sqrt(np.power(x,2) + sum([a[i]**2 for i in range( len(a) )])), 
+    #                         np.sqrt( np.sum([np.power(x,2*k) for k in range(1+len(a))]) + np.power( pfun(x, [n*a[n] for n in range(1, len(a))] ), 2 ) ) ), 
+    #             np.abs(pfun(x,a)))
 '''
 # a little example to make sure our polynomial-generating code works and 
 # is properly vectorized
@@ -40,10 +44,11 @@ x0 = [0.707107]
 condx0 = cond_pfun(x0,a)[0]
 cond_x0 = cond_pfun([-x0[0]],a)[0]
 cond0 = cond_pfun([0],a)[0]
-print 'Relative condition number for x = %f (p(x) = %d) is '%(x0[0], pfun(x0,a)[0]), condx0, '\n' # quite ill-conditioned
-print 'Relative condition number for x = %f (p(x) = %d) is '%(-x0[0], pfun([-x0[0]],a)[0]), cond_x0, '\n' 
-print 'Relative condition number for x = %f (p(x) = %d) is '%(0, pfun([0],a)[0]), cond0, '\n'
+print 'Relative condition number for x = %f (p(x) = %1.12f) is '%(x0[0], pfun(x0,a)[0]), condx0, '\n' # quite ill-conditioned
+print 'Relative condition number for x = %f (p(x) = %1.12f) is '%(-x0[0], pfun([-x0[0]],a)[0]), cond_x0, '\n' 
+print 'Relative condition number for x = %f (p(x) = %1.12f) is '%(0, pfun([0],a)[0]), cond0, '\n'
 
+# the following assumes perturbations only to x. 
 x_res = 10000
 x_min = -1.0
 x_max = 1.0
