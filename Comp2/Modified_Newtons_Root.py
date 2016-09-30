@@ -106,7 +106,7 @@ if found_root != choose_root: # if we found the repeated root (0, not choose_roo
     print('----We found the repeated root!----')
 eval_root = fun.eval_f(found_root)
 
-print('We found x = %2.15e.\n \t \tand f(x) = %2.15e'%(found_root, eval_root) )
+print('We found x = %f.\n \t \tand f(x) = %2.15e'%(found_root, eval_root) )
 print('The true root was %2.15e, \n \t \t which is within %2.15e of our estimate. \n'%(choose_root, np.abs(choose_root - found_root) ) )
 
 
