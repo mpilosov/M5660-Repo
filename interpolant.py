@@ -19,6 +19,9 @@ class Interpolant:
                 for j in range(self.degree+1):
                     if j!=i:
                         self.coeff[i]/=(self.datax[i]-self.datax[j])
+                        # the Lagrange polynomial coefficients share 
+                        # y_i/(x_i-x_j) in common, so we compute them outright 
+                        # and then evaluate the numerator (which depends on x) in the eval method
         elif self.method=='Monomial':
             # build vandermonde matrix & solve for coeffs
             vander=np.ones((self.degree+1,self.degree+1),dtype=float)
@@ -26,7 +29,7 @@ class Interpolant:
             for i in range(1,self.degree+1):
                 vander[:,i]=vander[:,i-1]*poly
             self.coeff=np.linalg.solve(vander,self.datay)
-        else:
+        else: # Newton 
             self.divdiff=np.zeros((self.degree+1,self.degree+1))
             self.divdiff[0,:]=self.datay
             for i in range(1,self.degree+1):
@@ -50,9 +53,9 @@ class Interpolant:
                 temp=np.ones(np.shape(input))
                 for j in range(self.degree+1):
                     if j!=i:
-                        temp*=input-self.datax[j]
+                        temp*=(input-self.datax[j])
                 output+=temp*self.coeff[i]
-        else: #Newton 
+        else: # Newton 
             output*=self.coeff[0]
             poly=np.ones(np.shape(input))
             for i in range(1,self.degree+1):
