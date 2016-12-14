@@ -7,7 +7,6 @@ Created on Thu Oct 20 08:41:57 2016
 import numpy as np
 class Interpolant:
 
-    
     def __init__(self,datax,datay,method='Newton'):
         self.datax=datax
         self.datay=datay
@@ -40,7 +39,7 @@ class Interpolant:
     
     
     def eval(self,input):
-        output=np.ones(np.shape(input)) #*self.coeff[0]
+        output=np.ones(np.shape(input))
         if self.method=='Monomial':
             poly=np.ones(np.shape(input))
             output*=self.coeff[0]
