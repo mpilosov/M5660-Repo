@@ -98,9 +98,9 @@ for meth, interpolation_method in enumerate(methods):
 print error
 print num_int_pts_range
 plt.cla()
-plot2 = plt.plot(num_int_pts_range,error[:,0]) # Lagrange
-plot2 = plt.plot(num_int_pts_range,error[:,1]) # Newton
-plot2 = plt.plot(num_int_pts_range,error[:,2]) # Monomial
+plot2 = plt.plot(num_int_pts_range,error[:,0],'g') # Lagrange
+plot2 = plt.plot(num_int_pts_range,error[:,1],'b') # Newton
+plot2 = plt.plot(num_int_pts_range,error[:,2],'k--') # Monomial
 plt.legend(methods,'upper left')
 plt.xlabel('Number of Equispaced Interpolating Points')
 plt.ylabel('Error (max norm) between Interpolation\nwith and w/o Perturbed Data')
