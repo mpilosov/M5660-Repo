@@ -13,7 +13,10 @@ class Interpolant:
         self.method=method
         self.degree=np.size((datay))-1
         if self.method=='Lagrange':
-            self.coeff=np.copy(self.datay)
+            # self.coeff=np.copy(self.datay)
+            # room for improvement. compute denominator first, then multiply by coeffs 
+            # current method (above) allows for accumulation of small errors.
+            self.coeff=np.ones(len(self.datay))
             for i in range(self.degree+1):
                 for j in range(self.degree+1):
                     if j!=i:
@@ -21,6 +24,7 @@ class Interpolant:
                         # the Lagrange polynomial coefficients share 
                         # y_i/(x_i-x_j) in common, so we compute them outright 
                         # and then evaluate the numerator (which depends on x) in the eval method
+            self.coeff*=self.datay# added this in as improvement
         elif self.method=='Monomial':
             # build vandermonde matrix & solve for coeffs
             vander=np.ones((self.degree+1,self.degree+1),dtype=float)
@@ -31,7 +35,7 @@ class Interpolant:
         else: # Newton 
             self.divdiff=np.zeros((self.degree+1,self.degree+1))
             self.divdiff[0,:]=self.datay
-            for i in range(1,self.degree+1):
+            for i in range(1,self.degree+1): # compute divided difference
                 for j in range(1,self.degree+2-i):
                     self.divdiff[i,j-1]=(self.divdiff[i-1,j]-self.divdiff[i-1,j-1])/(self.datax[j+i-1]-self.datax[j-1])
             self.coeff=self.divdiff[:,0]
@@ -39,6 +43,7 @@ class Interpolant:
     
     
     def eval(self,input):
+        # evaluate the polynomials by expanding them with their basis functions.
         output=np.ones(np.shape(input))
         if self.method=='Monomial':
             poly=np.ones(np.shape(input))
