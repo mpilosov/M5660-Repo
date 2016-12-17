@@ -7,19 +7,19 @@ np.random.seed(40) # optional random seed for consistency
 
 methods = ['Lagrange', 'Newton', 'Monomial']
 # interpolation_method = methods[0] # if not using the for-loop
-max_knots = 100
+max_knots = 60
 
 
 
-fun_choice = 'expoly' # choose a demonstration. 'cos' or 'randpoly' (random polynomial) or 'expoly' (for our example)
+fun_choice = 'randpoly' # choose a demonstration. 'cos' or 'randpoly' (random polynomial) or 'expoly' (for our example)
 periods = 1 # FOR COS - specify number of periods in interval (make function more/less turbulent)
-order = 3 # # FOR RANDPOLY - order of a randomly generated polynomial
+order = 5 # # FOR RANDPOLY - order of a randomly generated polynomial
 root_min = 0. # FOR RANDPOLY - left endpoint of uniform random root distribution
-root_max = 10. # FOR RANDPOLY - right endpoint of uniform random root distribution
-roots = (b-a)*np.random.rand(order) + a # function is random polynomial (or rather, polynomial with randomly chosen roots)
+root_max = 1. # FOR RANDPOLY - right endpoint of uniform random root distribution
+roots = (root_max-root_min)*np.random.rand(order) + root_min # function is random polynomial (or rather, polynomial with randomly chosen roots)
 
-a = 0 # left endpoint
-b = 1 # right endpoint
+a = -1 # left endpoint
+b = 3 # right endpoint
 
 view_plots = False
 print_error = False
@@ -93,7 +93,7 @@ for meth, interpolation_method in enumerate(methods):
         # plot interpolation polynomial generated from data points with and without purturbations
         plot1 = plt.plot(x_hr, y_interpolant, color = 'red', ls='-',lw =1)
         plot1 = plt.plot(x_hr, y_perturbed_interpolant, color = 'blue',ls = ':')
-        
+        plt.title('%s Interpolation, n = %d'%(interpolation_method, num_knots))
         # CHOOSE YOUR NORM 
         norm_choice = np.inf
         interpolant_error[row,meth] = np.linalg.norm(y_interpolant - y_perturbed_interpolant, norm_choice)
@@ -102,7 +102,7 @@ for meth, interpolation_method in enumerate(methods):
         coefficient_error[row,meth] = np.linalg.norm(Q.coeff - Qp.coeff, norm_choice)
         
         if view_plots:
-            if num_knots > 65 and num_knots <68:
+            if num_knots > 59 and num_knots <61:
                 plt.show() # show plot
     # plt.show() # show only final plot
 
